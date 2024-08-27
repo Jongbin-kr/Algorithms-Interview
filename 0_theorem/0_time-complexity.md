@@ -23,7 +23,7 @@
 
 
 
-## built-in datatype & method
+## A. built-in datatype & method
 
 ### 0. 유의해야할 주요 함수들의 시간복잡도
 |     | Operation    | Example                | Big-O | Notes                                                                                                             |
@@ -99,7 +99,11 @@
 | 11  | Iteration      | for k in d: | O(N)        | 딕셔너리 전체 순회          |
 
 
-## 주요 라이브러리별 시간복잡도
+## B. 주요 라이브러리별 시간복잡도
 - `itertools.permutations(n, r)`: $O(n!)$
 - `collections.Counter()`: 카운터 객체를 만드는 데 $O(n)$, 이후 하나씩 꺼낼 때는 $O(1)$ [(출처)](https://hyp.is/J2kzrhafEe-rHafkhA1NCA/stackoverflow.com/questions/42461840/what-is-the-time-complexity-of-collections-counter-in-python)
-- 
+
+
+
+## C. 주요 알고리즘의 시간복잡도
+- DFS/BFS: $O(V + E)$ ($V$는 정점의 개수, $E$는 간선의 개수)
