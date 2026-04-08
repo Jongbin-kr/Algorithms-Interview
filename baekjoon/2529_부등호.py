@@ -53,11 +53,35 @@ from itertools import permutations
 # sys.stdin = io.StringIO(tc)
 
 
+## input
 input = lambda: sys.stdin.readline().rstrip()
-
 k = int(input())
 braces = input().split()
 
+
+## simple brute-force
+# res = []
+# for nums in permutations(range(10), k+1):
+#     for i, brace in enumerate(braces, start=1):
+#         if brace == "<": 
+#             if nums[i-1] < nums[i]: continue
+#             else: break
+            
+#         else:
+#             if nums[i-1] > nums[i]: continue
+#             else: break
+            
+#         break
+            
+#     else:
+#         res.append(int("".join(map(str, nums))))
+
+# print(max(res) if len(str(max(res))) == k+1 else "0" + str(max(res)))
+# print(min(res) if len(str(min(res))) == k+1 else "0" + str(min(res)))
+    
+
+
+## back-tracking
 res = []
 for nums in permutations(range(10), k+1):
     for i, brace in enumerate(braces, start=1):
@@ -76,7 +100,3 @@ for nums in permutations(range(10), k+1):
 
 print(max(res) if len(str(max(res))) == k+1 else "0" + str(max(res)))
 print(min(res) if len(str(min(res))) == k+1 else "0" + str(min(res)))
-    
-
-
-
