@@ -1,2 +1,2 @@
 ## Neetcode
-- 2_group anagram cpp
+- ~~2_group anagram cpp~~
