@@ -29,34 +29,43 @@ using namespace std;
 class Solution {
 public:
     void duplicateZeros(vector<int>& arr) {
-        // find the actual last element
-        int read = 0; // 다음에 읽을 후보의 위치
-        int len = 0; // 복제까지 고려했을 때 차지하는 길이
-        int idx = -1; // 실질적으로 읽는 후보
+        int n = arr.size();
+        int n_zeros = 0;
         
-        while (read < arr.size() && len < arr.size()){
-            idx = read;
-            if (arr[read] == 0){
-                len += 2;
-            }
-            else{
-                len += 1;
-            }
-            read ++;
+        // count the number of zeros to get the actual end element
+        for (int x: arr){
+            if (x == 0){ n_zeros++; }
         }
         
-        // replace the element
-        for (int i=arr.size()-1; i>=0 ; i--){
-            if (arr[idx] == 0){
-                arr[i] = 0;
-                arr[i-1] = 0;
-                idx--;
-                i--;
+        
+       int i = n - 1;
+        int j = n + n_zeros - 1;
+
+        while (i >= 0) {
+            if (j < n) {
+                arr[j] = arr[i];
             }
-            else{
-                arr[i] = arr[idx];
-                idx--;
+
+            if (arr[i] == 0) {
+                j--;
+                if (j < n) {
+                    arr[j] = 0;
+                }
             }
+
+            i--;
+            j--;
         }
     }
 };
+
+
+/*
+n = 8
+i = 7
+j = 8 - 3  - 1 = 4
+        j
+1 0 2 3 0 4 5 0
+1 0 0 2 3 0 0 4
+
+*/
